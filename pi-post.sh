@@ -1,4 +1,7 @@
 #!/bin/bash
+# (c) Mats Karlsson
+# 2024-01-10
+
 # Check if root
 if [ "$EUID" -ne 0 ]
   then echo "Please use sudo"
