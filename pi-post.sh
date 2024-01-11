@@ -4,15 +4,17 @@
 
 # Check if root
 if [ "$EUID" -ne 0 ]
-  then echo "Please use sudo"
+  then echo "No sudo, nice!"
+  else (echo "Don't use sudo! Restart the script without sudo.")
   exit
-  else (echo "sudo is used")
 fi
 
-# Update
-apt update
-apt --yes upgrade
+# Variables
+NOW=`date '+%Y-%M-%d'`
 
+# Update
+sudo apt update
+sudo apt --yes upgrade
 
 # Install apps
 echo "--------------------"
@@ -43,26 +45,44 @@ ngrep
 mtr
 tcptraceroute"
 
-apt install --yes $apps_to_be_installed
+sudo apt install --yes $apps_to_be_installed
 
-
+# neofetch as Message Of The Day (motd)
 # motd and neofetch upgrade from 7.1 to 7.2.8
 wget https://raw.githubusercontent.com/LanikSJ/neofetch/master/neofetch
 chmod +x neofetch
-chown root:root /usr/bin/neofetch
-mv neofetch /usr/bin/neofetch
+sudo chown root:root /usr/bin/neofetch
+sudo mv neofetch /usr/bin/neofetch
+sudo mv /etc/motd /etc/motd.org
 
-mv /etc/motd /etc/motd.org
-
-cat << 'EOF' > /etc/profile.d/neofetch.sh
-# neofetch as Message Of The Day (motd)
+sudo bash -c 'cat << 'EOF' > /etc/profile.d/neofetch.sh
 export TEXTDOMAIN=Linux-PAM
 . gettext.sh
-EOF
+EOF'
 
-cat << 'EOF' > /etc/ssh/sshd_config`.d/printlastlog.conf
+# neofetch config
+FILE=/home/$USER/.config/neofetch/config.conf
+if test -f "$FILE"
+then
+  echo "$FILE exists."
+else
+  mkdir -p /home/$USER/.config/neofetch
+  wget https://raw.githubusercontent.com/mats-nk/pi-post/main/config.conf -O /home/$USER/.config/neofetch/config.conf
+fi
+
+# Disable PrintLastLog
+sudo bash -c 'cat << 'EOF' > /etc/ssh/sshd_config.d/printlastlog.conf
+# mk 2024-01-10
 PrintLastLog no
-EOF
+EOF'
+
+# Check if neofetch config file exists. If not download it
+FILE=~/.config/neofetch/config.conf
+if test -f "$FILE"; then
+    echo "$FILE exists."
+    else (echo "$FILE doesn't exists.")
+fi
+
 
 # Disable swap
 dphys-swapfile swapoff && \
