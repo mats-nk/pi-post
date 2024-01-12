@@ -8,7 +8,8 @@ After you have created a new installation of Raspbery Pi OS and logged in to it 
 ```bash
 wget https://raw.githubusercontent.com/mats-nk/pi-post/main/pi-post.sh
 chmod +x pi-post.sh
-./pi-post.sh```
+./pi-post.sh
+```
 
 ### The script will install
 
