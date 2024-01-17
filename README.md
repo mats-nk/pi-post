@@ -12,7 +12,16 @@ chmod +x pi-post.sh
 ```
 
 ### The script will install
+| Program  | Description                            | URL |
+| ---      | ---                                    | --- |
+| lynx     | Commandline based web browser          |     |
+| mc       | Midnight commander                     |     |
+| neofetch | A command-line system information tool |     |
+|          |                                        |     |
+|          |                                        |     |
+|          |                                        |     |
 
 ### And modify 
-
+- motd 
+Adds a banner when logging in. Its based on neofetch.
 
