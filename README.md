@@ -10,16 +10,32 @@ wget https://raw.githubusercontent.com/mats-nk/pi-post/main/pi-post.sh
 chmod +x pi-post.sh
 ./pi-post.sh
 ```
-
 ### The script will install
-| Program  | Description                            | URL |
-| ---      | ---                                    | --- |
-| lynx     | Commandline based web browser          |     |
-| mc       | Midnight commander                     |     |
-| neofetch | A command-line system information tool |     |
-|          |                                        |     |
-|          |                                        |     |
-|          |                                        |     |
+| Program           | Description                            | URL |
+| ---               | ---                                    | --- |
+| lynx              | Commandline based web browser          |     |
+| mc                | Midnight commander                     |     |
+| neofetch          | A command-line system information tool |     |
+| ntp               | Network Time Protocol. Keep the time   |     |
+| git               |                                        |     |
+| avahi-utils       |                                        |     |
+| dnsutils          |                                        |     |
+| python3-pip       |                                        |     |
+| curl              |                                        |     |
+| iputils-tracepath |                                        |     |
+| traceroute        |                                        |     |
+| wget              |                                        |     |
+| build-essential   |                                        |     |
+| jq                |                                        |     |
+| bc                |                                        |     |
+| tree              |                                        |     |
+| figlet            |                                        |     |
+| cowsay            |                                        |     |
+| fortune           |                                        |     |
+| tshark            |                                        |     |
+| ngrep             |                                        |     |
+| mtr               |                                        |     |
+| tcptraceroute     |                                        |     |
 
 ### And modify 
 - motd 
