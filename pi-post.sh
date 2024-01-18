@@ -48,7 +48,7 @@ tcptraceroute"
 sudo apt install --yes $apps_to_be_installed
 
 # neofetch as Message Of The Day (motd)
-# motd and neofetch upgrade from 7.1 to 7.2.8
+# Upgrade neofetch from 7.1 (installed by apt) to 7.2.8 (LanikSJ version)
 wget https://raw.githubusercontent.com/LanikSJ/neofetch/master/neofetch
 chmod +x neofetch
 sudo chown root:root /usr/bin/neofetch
@@ -76,33 +76,23 @@ sudo bash -c 'cat << 'EOF' > /etc/ssh/sshd_config.d/printlastlog.conf
 PrintLastLog no
 EOF'
 
-# Check if neofetch config file exists. If not download it
-FILE=~/.config/neofetch/config.conf
-if test -f "$FILE"; then
-    echo "$FILE exists."
-    else (echo "$FILE doesn't exists.")
-fi
-
-
 # Disable swap
 dphys-swapfile swapoff && \
 dphys-swapfile uninstall && \
 systemctl disable dphys-swapfile
 
-
 # Avahi/mDNS
 
 
-# NTP
+# NTP - Always have to correct time
 # sed /etc/ntpsec/ntp.conf
-# Default
+# Default from install
 #pool 0.debian.pool.ntp.org iburst
 #pool 1.debian.pool.ntp.org iburst
 #pool 2.debian.pool.ntp.org iburst
 #pool 3.debian.pool.ntp.org iburst
 
-
-# se.pool.ntp.org
+# Replce with se.pool.ntp.org
 #pool 0.se.pool.ntp.org iburst
 #pool 1.se.pool.ntp.org iburst
 #pool 2.se.pool.ntp.org iburst
