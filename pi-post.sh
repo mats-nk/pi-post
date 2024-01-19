@@ -43,7 +43,8 @@ traceroute
 tshark
 ngrep
 mtr
-tcptraceroute"
+tcptraceroute
+lshw"
 
 sudo apt install --yes $apps_to_be_installed
 
