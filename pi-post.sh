@@ -78,9 +78,9 @@ PrintLastLog no
 EOF'
 
 # Disable swap
-dphys-swapfile swapoff && \
-dphys-swapfile uninstall && \
-systemctl disable dphys-swapfile
+sudo dphys-swapfile swapoff && \
+sudo dphys-swapfile uninstall && \
+sudo systemctl disable dphys-swapfile
 
 # Avahi/mDNS
 
