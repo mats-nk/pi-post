@@ -71,6 +71,14 @@ else
   wget https://raw.githubusercontent.com/mats-nk/pi-post/main/config.conf -O /home/$USER/.config/neofetch/config.conf
 fi
 
+# Cache script run by crontab
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/apt_info -O /usr/local/bin/apt_info
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/weather -O /usr/local/bin/weather
+sudo chmod +x /usr/local/bin/apt_info
+sudo chmod +x /usr/local/bin/weather
+
+
+
 # Disable PrintLastLog
 sudo bash -c 'cat << 'EOF' > /etc/ssh/sshd_config.d/printlastlog.conf
 # mk 2024-01-10
