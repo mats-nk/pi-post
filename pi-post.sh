@@ -77,8 +77,6 @@ sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/weather -O /usr
 sudo chmod +x /usr/local/bin/apt_info
 sudo chmod +x /usr/local/bin/weather
 
-
-
 # Disable PrintLastLog
 sudo bash -c 'cat << 'EOF' > /etc/ssh/sshd_config.d/printlastlog.conf
 # mk 2024-01-10
@@ -91,7 +89,8 @@ sudo dphys-swapfile uninstall && \
 sudo systemctl disable dphys-swapfile
 
 # Avahi/mDNS
-
+# Change to "workstation=yes"
+# Add services ssh.service
 
 # NTP - Always have to correct time
 # sed /etc/ntpsec/ntp.conf
@@ -109,6 +108,7 @@ sudo systemctl disable dphys-swapfile
 
 
 # Power button
+# Add power On/Off button to /boot/config.txt
 
 
 # Logging
