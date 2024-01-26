@@ -133,8 +133,7 @@ sudo sed -i 's/3.debian.pool.ntp.org/3.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
 clean-up () {
    # Clean up everything
    echo "Cleaning Up" &&
-   apt -f install &&
    apt -y autoremove &&
-   apt -y autoclean &&
-   apt -y clean
 }
+
+sudo clean-up
