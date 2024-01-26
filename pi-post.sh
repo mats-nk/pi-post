@@ -1,6 +1,22 @@
 #!/bin/bash
-# (c) Mats Karlsson
-# 2024-01-10
+# (c) Mats Karlsson 2024-01-10
+
+# Features
+# --------
+# Adds packages I want to have
+# Adds neofetch and update it and adds a custom config
+# Modify motd so neofetch is used
+# Adds two scripts to create a cache funtionality to decrease the time delay the wweather and apt features would take.
+# - adds two entries to crontab
+# Adds closer NTP sources
+# Disable swap
+
+# ToDo:
+# -----
+# Add Avahi/mDNS services
+# Add samba
+# Add Power off button
+# Change logging behaviour
 
 # Check if root
 if [ "$EUID" -ne 0 ]
@@ -43,7 +59,8 @@ traceroute
 ngrep
 mtr
 tcptraceroute
-lshw"
+lshw
+sshfs"
 # Removed: tshark
 
 sudo apt install --yes $apps_to_be_installed
@@ -71,17 +88,23 @@ else
   wget https://raw.githubusercontent.com/mats-nk/pi-post/main/config.conf -O /home/$USER/.config/neofetch/config.conf
 fi
 
-# Cache script run by crontab
-sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/apt_info -O /usr/local/bin/apt_info
-sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/weather -O /usr/local/bin/weather
-sudo chmod +x /usr/local/bin/apt_info
-sudo chmod +x /usr/local/bin/weather
-
 # Disable PrintLastLog
 sudo bash -c 'cat << 'EOF' > /etc/ssh/sshd_config.d/printlastlog.conf
 # mk 2024-01-10
 PrintLastLog no
 EOF'
+
+# Cache script run by crontab
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/apt_info -O /usr/local/bin/apt_info
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/weather -O /usr/local/bin/weather
+sudo chmod +x /usr/local/bin/apt_info
+sudo chmod +x /usr/local/bin/weather
+# Add crontab entries
+sudo crontab -l > /tmp/mycrontab
+echo "  0 */2 *   *   *     /usr/local/bin/weather" >> /tmp/mycrontab
+echo "  2 */2 *   *   *     /usr/local/bin/apt_info" >> /tmp/mycrontab
+sudo crontab /tmp/mycrontab
+rm /tmp/mycrontab
 
 # Disable swap
 sudo dphys-swapfile swapoff && \
@@ -92,20 +115,12 @@ sudo systemctl disable dphys-swapfile
 # Change to "workstation=yes"
 # Add services ssh.service
 
-# NTP - Always have to correct time
-# sed /etc/ntpsec/ntp.conf
-# Default from install
-#pool 0.debian.pool.ntp.org iburst
-#pool 1.debian.pool.ntp.org iburst
-#pool 2.debian.pool.ntp.org iburst
-#pool 3.debian.pool.ntp.org iburst
-
-# Replce with se.pool.ntp.org
-#pool 0.se.pool.ntp.org iburst
-#pool 1.se.pool.ntp.org iburst
-#pool 2.se.pool.ntp.org iburst
-#pool 3.se.pool.ntp.org iburst
-
+# NTP - Assure that it fetching current time from internet
+# Replce defaults in /etc/ntpsec/ntp.conf with se.pool.ntp.org
+sudo sed -i 's/0.debian.pool.ntp.org/0.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+sudo sed -i 's/1.debian.pool.ntp.org/1.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+sudo sed -i 's/2.debian.pool.ntp.org/2.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+sudo sed -i 's/3.debian.pool.ntp.org/3.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
 
 # Power button
 # Add power On/Off button to /boot/config.txt
