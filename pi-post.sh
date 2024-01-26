@@ -40,11 +40,11 @@ neofetch
 dnsutils
 iputils-tracepath
 traceroute
-tshark
 ngrep
 mtr
 tcptraceroute
 lshw"
+# Removed: tshark
 
 sudo apt install --yes $apps_to_be_installed
 
