@@ -17,6 +17,7 @@
 # Add samba
 # Add Power off button
 # Change logging behaviour
+# Menu for "NTP" country??? or $1 arg?
 
 # Check if root
 if [ "$EUID" -ne 0 ]
