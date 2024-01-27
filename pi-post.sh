@@ -77,6 +77,8 @@ sudo mv /etc/motd /etc/motd.org
 sudo bash -c 'cat << 'EOF' > /etc/profile.d/neofetch.sh
 export TEXTDOMAIN=Linux-PAM
 . gettext.sh
+echo ""
+neofetch
 EOF'
 
 # neofetch config
