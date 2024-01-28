@@ -130,7 +130,8 @@ sudo sed -i 's/3.debian.pool.ntp.org/3.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
 
 
 # Logging
-
+# log2ram
+#
 
 clean-up () {
    # Clean up everything
