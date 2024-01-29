@@ -61,7 +61,8 @@ ngrep
 mtr
 tcptraceroute
 lshw
-sshfs"
+sshfs
+dialog"
 # Removed: tshark
 
 sudo apt install --yes $apps_to_be_installed
