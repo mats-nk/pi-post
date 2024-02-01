@@ -2,7 +2,7 @@
 
 <img src="https://github.com/mats-nk/pi-post/blob/main/images/neofetch.gif" width="300">
 
-`pi-post.sh` is a script that will install my programs and tweak the OS into my desires.
+`pi-post.sh` installs my programs, addons and tweak the OS into my desires.
 
 After you have created a new installation of Raspbery Pi OS and logged in to it with SSH.
 
