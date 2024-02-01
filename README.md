@@ -4,6 +4,8 @@
 
 After you have created a new installation of Raspbery Pi OS and logged in to it with SSH.
 
+[Animation](images/neofetch.gif)
+
 ### Run
 ```bash
 wget https://raw.githubusercontent.com/mats-nk/pi-post/main/pi-post.sh
