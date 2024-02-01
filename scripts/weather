@@ -1,0 +1,12 @@
+#!/bin/bash
+# (c) Mats Karlsson 2024-02-01
+# Fetch weather and cache it localy
+
+if [ $# -eq 0 ]
+  then
+    echo "Add a city that is close to you as an argument, ex. weather London"
+else
+    curl -s wttr.in/$1?0?q?T | awk '/°(C|F)/ {printf $(NF-1) $(NF)}' > /home/$USER/.config/weather.txt
+    cat /home/$USER/.config/weather.txt
+    echo ""
+fi
