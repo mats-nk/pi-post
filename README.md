@@ -13,8 +13,8 @@ chmod +x pi-post.sh
 
 ### Added features
 - Adds packages I want to have
-- Adds neofetch and update it and adds a custom config
-- Modify motd so neofetch is used
+- Install neofetch, update it to 7.2.8 and adds a custom config
+- Modify motd so neofetch is used when logging in to the system
 - Adds two scripts to create a cache funtionality to decrease the time delay the wweather and apt features would take.
   - adds two entries to crontab
 - Adds NTP sources that is close
