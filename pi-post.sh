@@ -106,7 +106,7 @@ sudo chmod +x /usr/local/bin/weather
 
 # Add crontab entries
 crontab -l > /tmp/mycrontab
-echo "  0 */2 *   *   *     /usr/local/bin/weather" >> /tmp/mycrontab
+echo "  0 */2 *   *   *     /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
 echo "  2 */2 *   *   *     /usr/local/bin/apt_info" >> /tmp/mycrontab
 crontab /tmp/mycrontab
 rm /tmp/mycrontab
