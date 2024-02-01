@@ -103,11 +103,12 @@ sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/apt_info -O /us
 sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/weather -O /usr/local/bin/weather
 sudo chmod +x /usr/local/bin/apt_info
 sudo chmod +x /usr/local/bin/weather
+
 # Add crontab entries
-sudo crontab -l > /tmp/mycrontab
+crontab -l > /tmp/mycrontab
 echo "  0 */2 *   *   *     /usr/local/bin/weather" >> /tmp/mycrontab
 echo "  2 */2 *   *   *     /usr/local/bin/apt_info" >> /tmp/mycrontab
-sudo crontab /tmp/mycrontab
+crontab /tmp/mycrontab
 rm /tmp/mycrontab
 
 # Disable swap
@@ -120,7 +121,7 @@ sudo systemctl disable dphys-swapfile
 # Add services ssh.service
 
 # NTP - Assure that it fetching current time from internet
-# Replce defaults in /etc/ntpsec/ntp.conf with se.pool.ntp.org
+# Replace defaults in /etc/ntpsec/ntp.conf with se.pool.ntp.org
 sudo sed -i 's/0.debian.pool.ntp.org/0.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
 sudo sed -i 's/1.debian.pool.ntp.org/1.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
 sudo sed -i 's/2.debian.pool.ntp.org/2.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
