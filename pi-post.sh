@@ -105,11 +105,13 @@ sudo chmod +x /usr/local/bin/apt_info
 sudo chmod +x /usr/local/bin/weather
 
 # Add crontab entries
-crontab -l > /tmp/mycrontab
-echo "  0 */2 *   *   *     /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
-echo "  2 */2 *   *   *     /usr/local/bin/apt_info" >> /tmp/mycrontab
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/crontab.tmpl -O /tmp/crontab.tmpl
+cat /tmp/crontab.tmpl > /tmp/mycrontab
+crontab -l >> /tmp/mycrontab
+echo "  0 */2 *  *  *  /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
+echo "  2 */2 *  *  *  /usr/local/bin/apt_info" >> /tmp/mycrontab
 crontab /tmp/mycrontab
-rm /tmp/mycrontab
+rm -f /tmp/mycrontab
 
 # Disable swap
 sudo dphys-swapfile swapoff && \
