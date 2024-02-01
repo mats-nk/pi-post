@@ -89,7 +89,7 @@ then
   echo "$FILE exists."
 else
   mkdir -p /home/$USER/.config/neofetch
-  wget https://raw.githubusercontent.com/mats-nk/pi-post/main/config.conf -O /home/$USER/.config/neofetch/config.conf
+  wget https://raw.githubusercontent.com/mats-nk/pi-post/main/templates/config.conf -O /home/$USER/.config/neofetch/config.conf
 fi
 
 # Disable PrintLastLog
@@ -99,13 +99,13 @@ PrintLastLog no
 EOF'
 
 # Cache script run by crontab
-sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/apt_info -O /usr/local/bin/apt_info
-sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/weather -O /usr/local/bin/weather
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/scripts/apt_info -O /usr/local/bin/apt_info
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/scripts/weather -O /usr/local/bin/weather
 sudo chmod +x /usr/local/bin/apt_info
 sudo chmod +x /usr/local/bin/weather
 
 # Add crontab entries
-sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/crontab.tmpl -O /tmp/crontab.tmpl
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/templates/crontab.tmpl -O /tmp/crontab.tmpl
 cat /tmp/crontab.tmpl > /tmp/mycrontab
 crontab -l >> /tmp/mycrontab
 echo "  0 */2 *  *  *  /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
