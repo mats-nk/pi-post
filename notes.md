@@ -23,6 +23,6 @@ run: `asciinema rec youterminal.cast`
 
 Push ctrl + D to stop recording and exit asciinema by typing exit
 
-Convert "cast" to gif, https://dstein64.github.io/gifcast/
+Convert the "cast" recording file to an animated gif, https://dstein64.github.io/gifcast/
 
 
