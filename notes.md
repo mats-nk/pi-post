@@ -15,7 +15,7 @@ Remember city (arg1)
 
 `curl -s wttr.in/$1?0?q?T | awk '/°(C|F)/ {printf $(NF-1) $(NF)}' > /home/$USER/.config/weather.txt`
 
-## Scren recording and animated GIFs
+## Screen recording and animated GIFs
 
 Install `sudo apt install asciinema`
 
