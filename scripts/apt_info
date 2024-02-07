@@ -2,10 +2,11 @@
 # (c) Mats Karlsson 2024-02-01
 
 # Get number of packages that can be updated
+# and cache the information so it can be reused
 echo ""
 echo "Start apt_info fetch."
 echo ""
 sudo apt update
 apt-get upgrade -s | grep -P '^\d+ upgraded' | cut -d" " -f1 > /home/$USER/.config/apt_info.txt
-echo "Number of packages that can be updated: "`cat /home/$USER/.config/apt_info.txt`
-echo ""
+echo "Number of packages that can be updated"
+cat /home/$USER/.config/apt_info.txt
