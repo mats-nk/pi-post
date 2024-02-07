@@ -108,8 +108,11 @@ sudo chmod +x /usr/local/bin/weather
 sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/templates/crontab.tmpl -O /tmp/crontab.tmpl
 cat /tmp/crontab.tmpl > /tmp/mycrontab
 crontab -l >> /tmp/mycrontab
-echo "  0 */2 *  *  *  /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
-echo "  2 */2 *  *  *  /usr/local/bin/apt_info" >> /tmp/mycrontab
+echo "  */28  *     *     *     *     /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
+echo "  */28  *     *     *     *     /usr/local/bin/apt_info" >> /tmp/mycrontab
+echo "@reboot                         /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
+echo "@reboot                         /usr/local/bin/apt_info" >> /tmp/mycrontab
+
 crontab /tmp/mycrontab
 rm -f /tmp/mycrontab
 
