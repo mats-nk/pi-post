@@ -105,16 +105,23 @@ sudo chmod +x /usr/local/bin/apt_info
 sudo chmod +x /usr/local/bin/weather
 
 # Add crontab entries
-sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/templates/crontab.tmpl -O /tmp/crontab.tmpl
-cat /tmp/crontab.tmpl > /tmp/mycrontab
-crontab -l >> /tmp/mycrontab
-echo "  */28  *     *     *     *     /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
-echo "  */28  *     *     *     *     /usr/local/bin/apt_info" >> /tmp/mycrontab
-echo "@reboot                         /usr/local/bin/weather Stockholm" >> /tmp/mycrontab
-echo "@reboot                         /usr/local/bin/apt_info" >> /tmp/mycrontab
+## Get the crontab template
+sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/templates/crontab.tmpl -O ~/$USER/.config/crontab.tmpl
 
-crontab /tmp/mycrontab
-rm -f /tmp/mycrontab
+## Create a new temporary crontab and add the crontab template to the as a header
+cat ~/$USER/.config/crontab.tmpl > ~/$USER/.config/mycrontab
+
+## Add the current crontab to the temporary crontab
+crontab -l | sudo sed -E 's/#.*$//;/^$/d' >> ~/$USER/.config/mycrontab
+
+## Add new crontab tasks to the temporary crontab
+echo "  *     */2   *     *     *     /usr/local/bin/weather Stockholm" >> ~/$USER/.config/mycrontab
+echo "  */28  *     *     *     *     /usr/local/bin/apt_info" >> ~/$USER/.config/mycrontab
+echo "@reboot                         /usr/local/bin/weather Stockholm" >> ~/$USER/.config/mycrontab
+echo "@reboot                         /usr/local/bin/apt_info" >> ~/$USER/.config/mycrontab
+
+## Activate the temporary crontab as the current crontab
+crontab ~/$USER/.config/mycrontab
 
 # Disable swap
 sudo dphys-swapfile swapoff && \
