@@ -132,12 +132,18 @@ sudo systemctl disable dphys-swapfile
 # Change to "workstation=yes"
 # Add services ssh.service
 
+
+##
+## Needs to be changed
+## Bullseye uses  /etc/ntp.conf
+## Bookworm uses  /etc/ntpsec/ntp.conf
+##
 # NTP - Assure that it fetching current time from internet
 # Replace defaults in /etc/ntpsec/ntp.conf with se.pool.ntp.org
-sudo sed -i 's/0.debian.pool.ntp.org/0.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
-sudo sed -i 's/1.debian.pool.ntp.org/1.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
-sudo sed -i 's/2.debian.pool.ntp.org/2.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
-sudo sed -i 's/3.debian.pool.ntp.org/3.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+#sudo sed -i 's/0.debian.pool.ntp.org/0.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+#sudo sed -i 's/1.debian.pool.ntp.org/1.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+#sudo sed -i 's/2.debian.pool.ntp.org/2.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
+#sudo sed -i 's/3.debian.pool.ntp.org/3.se.pool.ntp.org/g' /etc/ntpsec/ntp.conf
 
 # Power button
 # Add power On/Off button to /boot/config.txt
