@@ -111,7 +111,7 @@ sudo wget https://raw.githubusercontent.com/mats-nk/pi-post/main/templates/cront
 ## Create a new temporary crontab and add the crontab template to the as a header
 cat ~/.config/crontab.tmpl > ~/.config/mycrontab
 
-## Add the current crontab to the temporary crontab
+## Add the current crontab to the temporary crontab and remove all comments
 crontab -l | sudo sed -E 's/#.*$//;/^$/d' >> ~/.config/mycrontab
 
 ## Add new crontab tasks to the temporary crontab
