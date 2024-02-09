@@ -8,7 +8,7 @@ Ref.: https://github.com/raspberrypi/bookworm-feedback/issues/204
 
 <img src="https://github.com/mats-nk/pi-post/blob/main/images/neofetch.gif" width="300">
 
-`pi-post.sh` installs my programs, addons and tweak the OS into my desires.
+`pi-post.sh` corrects issues that is wrong in **Raspberry Pi OS** and installs programs, addons and tweak the OS into my desires.
 
 After you have created a new installation of Raspbery Pi OS and logged in to it with SSH.
 
