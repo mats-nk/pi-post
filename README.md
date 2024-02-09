@@ -1,5 +1,11 @@
 # pi-post
 
+The prime reason for `pi-post` was created on the need to get personal modifications and tweaks.
+
+The second reason for `pi-post` is to corret issues that the "Raspberry Pi OS maintainers" refuse even when it's wrong, instead of fixing issues they are more prone to use resources on shooting down issues than to fix them. This bad attitude from the Raspberry Pi OS maintainers is just reflecting bad on the wonderfull Raspberry Pi.
+
+Ref.: https://github.com/raspberrypi/bookworm-feedback/issues/204
+
 <img src="https://github.com/mats-nk/pi-post/blob/main/images/neofetch.gif" width="300">
 
 `pi-post.sh` installs my programs, addons and tweak the OS into my desires.
