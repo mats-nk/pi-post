@@ -3,21 +3,21 @@
 
 # Features
 # --------
-# Adds packages I want to have
-# Adds neofetch and update it and adds a custom config
-# Modify motd so neofetch is used
-# Adds two scripts to create a cache funtionality to decrease the time delay the wweather and apt features would take.
-# - adds two entries to crontab
-# Adds closer NTP sources
-# Disable swap
+# - Adds packages I want to have
+# - Adds neofetch and update it and adds a custom config
+# - Modify motd so neofetch is used
+# - Adds two scripts to create a cache funtionality to decrease the time delay the wweather and apt features would take.
+#   - Adds two entries to crontab
+# - Adds closer NTP sources
+# - Disable swap
 
 # ToDo:
 # -----
-# Add Avahi/mDNS services
-# Add samba
-# Add Power off button
-# Change logging behaviour
-# Menu for "NTP" country??? or $1 arg?
+# - Add Avahi/mDNS services
+# - Add Samba
+# - Add Power off button
+# - Change logging behaviour
+# - Menu for "NTP" country??? or $1 arg?
 
 # Check if root
 if [ "$EUID" -ne 0 ]
