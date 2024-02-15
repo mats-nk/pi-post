@@ -10,6 +10,8 @@ Changes from the nondescriptive name "Preconfigured" to "MyWiFi"
 
 `sudo nmcli connection modify preconfigured connection.id MyWiFi`
 
+Verify with `nmcli connection show`
+
 ### weather
 
 Store cached weather for 2 hours in /home/$USER/.config/weather.txt
