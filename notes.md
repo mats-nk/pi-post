@@ -6,7 +6,9 @@
 
 ### Change default WiFi connection name in "Network Manager"
 
-`sudo nmcli connection modify preconfigured connection.id WiFi`
+Changes from the nondescriptive name "Preconfigured" to "MyWiFi"
+
+`sudo nmcli connection modify preconfigured connection.id MyWiFi`
 
 ### weather
 
