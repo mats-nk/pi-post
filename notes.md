@@ -29,8 +29,6 @@ Install `sudo apt install asciinema`
 
 run: `asciinema rec youterminal.cast`
 
-Push ctrl + D to stop recording and exit asciinema by typing exit
+Push ctrl + D to stop recording and type `exit` to exit asciinema.
 
-Convert the "cast" recording file to an animated gif, https://dstein64.github.io/gifcast/
-
-
+Convert the "asciinema" recording file to an animated gif, https://dstein64.github.io/gifcast/
