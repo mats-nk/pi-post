@@ -4,6 +4,10 @@
 
 # ToDo
 
+### Change default WiFi connection name in "Network Manager"
+
+`sudo nmcli connection modify preconfigured connection.id WiFi`
+
 ### weather
 
 Store cached weather for 2 hours in /home/$USER/.config/weather.txt
